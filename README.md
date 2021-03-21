@@ -10,7 +10,7 @@ Remote IR control via AWS SQS FIFO queue.
 
 Don't forget to copy or download a file with your **Access key ID** and **Secret access key**.
 
-While creating a queue name it `IRCommands.fifo` and choose `FIFO` _type_. Set `1 minute` as value for _Message retention period_ and `1 KB` for _Maximum message size_.
+While creating a queue name it `IRCommands.fifo` and choose `FIFO` _type_. Set `1 minute` as value for _Message retention period_ and `1 KB` for _Maximum message size_. Do not forget to *enable long polling* by changing _Receive message wait time_ to `20` seconds. This will reduce the service polling rate and allow more economical use of the request limit available in the free tier.
 
 With _Amazon SQS Free Tier_ you can get started with Amazon SQS for free. All customers can make **1 million Amazon SQS requests for free each month**. Some applications might be able to operate within this Free Tier limit. [Amazon SQS pricing](https://aws.amazon.com/sqs/pricing/)
 
@@ -274,7 +274,7 @@ The following are references that I found helpful:
   * [Boto3 Docs - Developer guide - Resources](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/resources.html)
 * Additional packages:
   * [python-evdev - Docs - Tutorial](https://python-evdev.readthedocs.io/en/latest/tutorial.html)
-  * [API Reference - events](https://python-evdev.readthedocs.io/en/latest/apidoc.html#module-evdev.events)
+  * [python-evdev - API Reference - events](https://python-evdev.readthedocs.io/en/latest/apidoc.html#module-evdev.events)
 * Alternative Python packages:
   * [pigpio](https://github.com/joan2937/pigpio)
   * [ircodec - A Python package that simplifies sending and receiving IR signals for the Raspberry Pi using pigpiod](https://github.com/kentwait/ircodec)

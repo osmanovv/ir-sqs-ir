@@ -17,7 +17,7 @@ def main():
     protocol = 'nec'
 
     while True:
-        for message in queue.receive_messages():
+        for message in queue.receive_messages(WaitTimeSeconds=20):
             print(message.body)
             event = json.loads(message.body)
             scancode_value = event["value"]
